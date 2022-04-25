@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 function Section( {title, description, rightBtnText, leftBtnText, backgroundImg} ) {
     return (
     <Wrap bgImage = {backgroundImg}>
@@ -13,9 +14,11 @@ function Section( {title, description, rightBtnText, leftBtnText, backgroundImg}
                 <LeftButton>
                     {leftBtnText}
                 </LeftButton>
-                <RightButton>
-                    {rightBtnText}
-                </RightButton>
+                {rightBtnText &&
+                    <RightButton>
+                        {rightBtnText}
+                    </RightButton>
+                }
             </ButtonGroup>
             <DownArrow src="/images/down-arrow.svg"/>
         </Buttons>
@@ -49,7 +52,7 @@ const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 30px;
     @media (max-width: 768px){
-        flex-direction: column;
+        flex-direction: column; 
     }//반응형으로 크기가 줄어들면 세로로 버튼들이 나열된다.
 `
 
