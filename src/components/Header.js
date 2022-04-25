@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
+
 
 function Header() {
   return (
@@ -17,7 +18,7 @@ function Header() {
         <RightMenu>
           <a href="#">Shop</a>
           <a href="#">Account</a>
-          <CustomMenu />
+          <img src="/images/fabars.svg" alt=""/>
         </RightMenu>
     </Container>
   )
@@ -64,10 +65,26 @@ const RightMenu = styled.div`
     text-transform: uppercase;
     margin-right: 10px;
   }
+  img{
+    width:30px;
+    height:20px;
+    cursor:pointer;
+  }
 `
 
-const CustomMenu = styled(MenuIcon)`
+// const Imgbar = styled.img`
+//   width:30px;
+//   height:20px;
+//   cursor
+// `
 
-  cursor: pointer;//임포트한 라이브러리를 괄호안에 활용한다.
+// const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+//     color: white;
+//     font-size: 1.5rem;
+//     cursor: pointer;
+// `
+// const CustomMenu = styled(MenuIcon)`
 
-`
+//   cursor: pointer;//임포트한 라이브러리를 괄호안에 활용한다.
+
+// ` 
