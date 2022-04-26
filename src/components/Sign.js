@@ -1,12 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
+import Sign from './Sign'
 
 
-function Sign(){
+function Login(){
 
     return(
-        <>
+        <Container>  
+            <Top>
+                <Link to="/">
+                    <img src="/images/logo.svg" alt=""/> 
+                </Link>
+            </Top>
             <Section>
                 <h1>회원가입</h1>
                 <Form method="post">
@@ -22,19 +28,29 @@ function Sign(){
                 </Form>
                 <Space>또는</Space>
                 <Link to="/sign">
+                
                 </Link>
             </Section>
             
-        </>
+        </Container>
     )
 }
 
-export default Sign
+export default Login
+const Container = styled.div`
+    font-size:12px;
+`
 
-
+const Top = styled.div`
+    display:flex;
+    margin: 20px;
+`
 
 const Section = styled.div`
-    margin-top:100px;
+    margin-top:80px;
+    h1{
+        font-size:24px;
+    }
 
 `
 
@@ -67,15 +83,15 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:20px; 
+    margin-top:20px;
     input{
-        width:400px;
+        width:340px;
         height: 40px;
         margin-top:20px; 
         background-color: #f5f5f5;
         border: 1px solid #f5f5f5;
         border-radius: 30px;
-        padding-left:20px;
+        padding-left:30px;
         
     }
     p{
@@ -85,6 +101,8 @@ const Form = styled.form`
     }
     a{
         text-decoration: underline;
+        cursor:pointer;
+        font-size:12px;
     }
     span{
         padding: 0 0.5rem;
@@ -93,12 +111,15 @@ const Form = styled.form`
 
 
 const Button = styled.button`
-    width:400px;
+    width:340px;
     height:40px;
     margin-top:20px; 
     background-color: #3d69e1;
     border: 1px solid #f5f5f5;
     border-radius: 30px;
     color: white;
+    cursor:pointer;
+    font-size:12px;
 `
+
 
