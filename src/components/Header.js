@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { selectCars } from '../features/car/carSlice';
 import { useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 // import MenuIcon from '@material-ui/icons/Menu';
 
 
@@ -11,9 +12,9 @@ function Header() {
 
   return (
     <Container>
-        <a>
+        <Link to="/">
           <img src="/images/logo.svg" alt=""/> 
-        </a>
+        </Link>
         <Menu>
             {cars && cars.map((car, index) => (
                <a key={index} href="#">{car}</a>
@@ -21,7 +22,9 @@ function Header() {
         </Menu>
         <RightMenu>
           <a href="#">Shop</a>
-          <a href="#">Account</a>
+          <Link to="/login">
+            <a href="#">계정</a>
+          </Link>
           <Fabars onClick={() => setBurgerStatus(true)} src="/images/fabars.svg" alt=""/>
         </RightMenu>
         <BurgerNav show={burgerStatus}>
@@ -80,13 +83,12 @@ const RightMenu = styled.div`
   align-items: center;
   a{
     font-weight: 600;
-    text-transform: uppercase;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
 `
 const Fabars = styled.img`
-  width:30px;
+  width:20px;
   height:20px;
   cursor:pointer;
 `

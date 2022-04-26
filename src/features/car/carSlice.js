@@ -13,3 +13,7 @@ const carSlice = createSlice({
 export const selectCars = state => state.car.cars
 
 export default carSlice.reducer
+
+
+
+
