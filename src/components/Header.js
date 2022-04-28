@@ -25,6 +25,9 @@ function Header() {
           <Link to="/login">
             <a href="#">계정</a>
           </Link>
+          <Link to="/faq">
+            <a href="#">FAQ</a>
+          </Link>
           <Fabars onClick={() => setBurgerStatus(true)} src="/images/fabars.svg" alt=""/>
         </RightMenu>
         <BurgerNav show={burgerStatus}>
@@ -83,7 +86,7 @@ const RightMenu = styled.div`
   align-items: center;
   a{
     font-weight: 600;
-    margin-right: 20px;
+    margin-right: 10px;
   }
 
 `

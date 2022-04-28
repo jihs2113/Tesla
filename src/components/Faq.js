@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
+import Customer from './Customer';
 
 
-function Login(){
+function Faq(){
+    const customer ={
+        'name': '홍길동',
+        'birthday': '911026',
+        'gender': '남자',
+        'job': '직장인'
+    }
 
     return(
         <Container>  
@@ -13,29 +20,28 @@ function Login(){
                 </Link>
             </Top>
             <Section>
-                <h1>회원가입</h1>
+                <h1>공지사항</h1>
                 <Form method="post">
-                    <input type="text" inputmode="email" name="identitu" autoComplete="off"
-                    autoCorrect="off" autocapitalize="none" aria-label="email" />
-                    <input />
-                    <Button>다음</Button>
-                    <p>
-                        <a>이메일 주소를 잊으셨나요?</a>
-                        <span>ㅣ</span>
-                        <a>비밀번호를 잊으셨나요?</a>
-                    </p>
+                    <Customer 
+                        name={}
+                        birthday={}
+                        gender={}
+                        job={}
+                        />
+                    <BottomBtn>
+                        <Button>목록</Button>
+                        <Button>수정</Button>
+                    </BottomBtn>
+
                 </Form>
-                <Space>또는</Space>
-                <Link to="/sign">
-                
-                </Link>
+
             </Section>
             
         </Container>
     )
 }
 
-export default Login
+export default Faq
 const Container = styled.div`
     font-size:12px;
 `
@@ -108,11 +114,13 @@ const Form = styled.form`
     }
 `
 
-
+const BottomBtn = styled.div`
+    margin: 40px;
+`
 const Button = styled.button`
-    width:340px;
-    height:40px;
-    margin-top:20px; 
+    width:100px;
+    height:30px;
+    margin: 2px;
     background-color: #3d69e1;
     border: 1px solid #f5f5f5;
     border-radius: 30px;

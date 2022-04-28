@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Sign from './Sign'
-
+import Kakao from './Kakao';
 
 function Login(){
+
+    const NaverIn = () =>{
+        
+    }
 
     return(
         <Container>  
@@ -27,9 +31,12 @@ function Login(){
                     </p>
                 </Form>
                 <Space>또는</Space>
-                <Link to="/sign">
-                <SignIn>계정 생성하기</SignIn>
-                </Link>
+                <LoginLink>
+                        <Kakao onClick={NaverIn} id="naverIdLogin"/>
+                    <Link to="/sign">
+                        <SignIn>계정 생성하기</SignIn>
+                    </Link>
+                </LoginLink>
             </Section>
             
         </Container>
@@ -37,6 +44,7 @@ function Login(){
 }
 
 export default Login
+
 const Container = styled.div`
     font-size:12px;
 `
@@ -120,6 +128,11 @@ const Button = styled.button`
     color: white;
     cursor:pointer;
     font-size:12px;
+`
+const LoginLink = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 `
 
 
