@@ -1,17 +1,41 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Customer from './Customer';
 
 
 function Faq(){
-    const customer ={
-        'name': '홍길동',
-        'birthday': '911026',
-        'gender': '남자',
-        'job': '직장인'
-    }
-
+    const [header, SetHeader] = useState([
+        {
+            id: '번호',
+            name: '이름',
+            birthday: '생년월일',
+            gender: '성별',
+        }
+    ])
+    const [users, SetUser] = useState([
+        {
+            id: '1',
+            name: 'jihwan',
+            birthday: '911026',
+            gender: '남자',
+            job: '대학생'
+        },
+        {
+            id: '2',
+            name: 'ggjihwan',
+            birthday: '911026',
+            gender: '여자',
+            job: '직장인'
+        },
+        {
+            id: '3',
+            name: 'hhjihwan',
+            birthday: '911026',
+            gender: '남자',
+            job: '대학생'
+        }
+    ])
     return(
         <Container>  
             <Top>
@@ -22,12 +46,10 @@ function Faq(){
             <Section>
                 <h1>공지사항</h1>
                 <Form method="post">
-                    <Customer 
-                        name={}
-                        birthday={}
-                        gender={}
-                        job={}
-                        />
+                            <Customer
+                            header ={header}
+                            users={users}
+                            />
                     <BottomBtn>
                         <Button>목록</Button>
                         <Button>수정</Button>
@@ -59,30 +81,30 @@ const Section = styled.div`
 
 `
 
-const Space = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px;
-    font-size: 12px;
-    font-weight: 500;
-    ::before{
-        content: "";
-        display: inline-block;
-        width: 150px;
-        height: 1px;
-        margin: 0 8px;
-        background-color: #f5f5f5;
-    }
-    ::after{
-        content: "";
-        display: inline-block;
-        width: 150px;
-        height: 1px;
-        margin: 0 8px;
-        background-color: #f5f5f5;
-    }
-`
+// const Space = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 40px;
+//     font-size: 12px;
+//     font-weight: 500;
+//     ::before{
+//         content: "";
+//         display: inline-block;
+//         width: 150px;
+//         height: 1px;
+//         margin: 0 8px;
+//         background-color: #f5f5f5;
+//     }
+//     ::after{
+//         content: "";
+//         display: inline-block;
+//         width: 150px;
+//         height: 1px;
+//         margin: 0 8px;
+//         background-color: #f5f5f5;
+//     }
+// `
 
 const Form = styled.form`
     display: flex;
@@ -128,5 +150,6 @@ const Button = styled.button`
     cursor:pointer;
     font-size:12px;
 `
+
 
 

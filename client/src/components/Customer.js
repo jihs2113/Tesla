@@ -1,22 +1,61 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import Faq from './Faq';
 import {Link} from 'react-router-dom';
 
 
-function Faq(){
+function Customer({users, header}){
 
     return(
         <Container>  
             <Section>
                 <h1>고객관리</h1>
-                
+                <table>
+                    <div>
+                    {header.map ((head, index) =>
+                        <div className="headlayout">
+                            <span>{head.id}</span>
+                            <span> {head.name}</span>
+                            <span> {head.birthday}</span>
+                            <span>{head.gender}</span>
+                        </div>
+                    )}
+                    </div>
+                    {users.map ((item, index) =>
+                        <div className="layout">
+                            <span>{index}</span>
+                            <span> {item.name}</span>
+                            <span> {item.birthday}</span>
+                            <span>{item.gender}</span>
+                        </div>
+                    )}
+                </table>
             </Section>
             
         </Container>
     )
 }
 
-export default Faq
+export default Customer
+
+// function CustomerProfile({users}){
+//     return(
+//         <div>
+//             <h2>{users.name}{users.id}</h2>
+//         </div>
+//     )
+// }
+
+// function CustomerInfo({users}){
+//     return(
+//         <div>
+//             <p>{users.birthday}</p>
+//             <p>{users.gender}</p>
+//             <p>{users.job}</p>
+//         </div>
+//     )
+// }
+
 const Container = styled.div`
     font-size:12px;
 `
@@ -30,6 +69,25 @@ const Section = styled.div`
     margin-top:80px;
     h1{
         font-size:24px;
+    }
+    table{
+        border: solid;
+        padding:50px;
+        margin-top:70px;
+    }
+    .headlayout{
+        display: flex;
+        span{
+           width:200px;
+            
+        }
+    }
+    .layout{
+        display: flex;
+        span{
+            width:200px;
+            margin-top:30px;
+        }
     }
 
 `
