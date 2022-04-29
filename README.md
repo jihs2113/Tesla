@@ -21,6 +21,7 @@
 <h2>사용된 기술</h2>
 <ul>
   <li>Front-End: <h6>React, Hooks, Redux, Styled-Components, Naver Login</h6> </li>
+  <li>Back-End:<h6>Node Express MySQL</h6></li>
   <li>Deployment:<h6>AWS</h6></li>
 </ul>
 
