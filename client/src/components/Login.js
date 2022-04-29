@@ -100,6 +100,7 @@ const Form = styled.form`
         border: 1px solid #f5f5f5;
         border-radius: 30px;
         padding-left:30px;
+        padding-right:30px;
         
     }
     p{

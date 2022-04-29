@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Customer from './Customer';
 
 
 function Faq(){
-    const [header, SetHeader] = useState([
+    const [custom, setCustom] = useState([]);
+    const [header, setHeader] = useState([
         {
             id: '번호',
             name: '이름',
@@ -13,29 +14,19 @@ function Faq(){
             gender: '성별',
         }
     ])
-    const [users, SetUser] = useState([
-        {
-            id: '1',
-            name: 'jihwan',
-            birthday: '911026',
-            gender: '남자',
-            job: '대학생'
-        },
-        {
-            id: '2',
-            name: 'ggjihwan',
-            birthday: '911026',
-            gender: '여자',
-            job: '직장인'
-        },
-        {
-            id: '3',
-            name: 'hhjihwan',
-            birthday: '911026',
-            gender: '남자',
-            job: '대학생'
-        }
-    ])
+    
+    const callApi = async() =>{
+        const response = await fetch(`/api/customers`);
+        const body = await response.json();
+        console.log(body);
+        return body;
+    };
+
+    useEffect(() =>{
+        callApi()
+        .then((data) => setCustom(data));
+    },[]);
+    console.log(custom);
     return(
         <Container>  
             <Top>
@@ -46,10 +37,11 @@ function Faq(){
             <Section>
                 <h1>공지사항</h1>
                 <Form method="post">
+                    {custom ?
                             <Customer
-                            header ={header}
-                            users={users}
-                            />
+                                header ={header}
+                                custom={custom}
+                            /> : ""}
                     <BottomBtn>
                         <Button>목록</Button>
                         <Button>수정</Button>

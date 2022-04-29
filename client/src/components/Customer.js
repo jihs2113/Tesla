@@ -4,7 +4,7 @@ import Faq from './Faq';
 import {Link} from 'react-router-dom';
 
 
-function Customer({users, header}){
+function Customer({header, custom}){
 
     return(
         <Container>  
@@ -21,7 +21,7 @@ function Customer({users, header}){
                         </div>
                     )}
                     </div>
-                    {users.map ((item, index) =>
+                    {custom.map ((item, index) =>
                         <div className="layout">
                             <span>{index}</span>
                             <span> {item.name}</span>
