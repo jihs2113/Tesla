@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import CustomerDelete from './CustomerDelete';
 import Faq from './Faq';
 import {Link} from 'react-router-dom';
 
@@ -29,6 +30,7 @@ function Customer({header, custom}){
                             <span>{item.gender}</span>
                         </div>
                     )}
+                    <CustomerDelete stateRefresh = {stateRefresh} id ={id} />
                 </table>
             </Section>
             
@@ -162,4 +164,7 @@ const Button = styled.button`
     font-size:12px;
 `
 
+const CustomerDelete = styled.div`
+
+`
 

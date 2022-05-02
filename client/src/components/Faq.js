@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Customer from './Customer';
+import CustomerAdd from './CustomerAdd';
 
 
 function Faq(){
     const [custom, setCustom] = useState([]);
+    const []
     const [header, setHeader] = useState([
         {
             id: '번호',
@@ -15,6 +17,14 @@ function Faq(){
         }
     ])
     
+    const stateRefresh =() =>{
+        setCustom({
+            custom: '',
+        });
+        callApi()
+        .then((data) => setCustom(data));
+    } 
+
     const callApi = async() =>{
         const response = await fetch(`/api/customers`);
         const body = await response.json();
@@ -42,6 +52,7 @@ function Faq(){
                                 header ={header}
                                 custom={custom}
                             /> : ""}
+                            <CustomerAdd stateRefresh ={stateRefresh}/>
                     <BottomBtn>
                         <Button>목록</Button>
                         <Button>수정</Button>
@@ -141,6 +152,10 @@ const Button = styled.button`
     color: white;
     cursor:pointer;
     font-size:12px;
+`
+
+const CustomerAdd = styled.div`
+
 `
 
 
