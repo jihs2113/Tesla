@@ -2,9 +2,15 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import {post} from 'axios';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 
 function CustomerAdd({stateRefresh}){
-
     const [users, setUsers] = useState(
         {
             file: null,
@@ -87,35 +93,20 @@ function CustomerAdd({stateRefresh}){
 
 
     return(
-        <Container>
-            <Top>
-                <Link to="/">
-                    <img src="/images/logo.svg" alt=""/> 
-                </Link>
-            </Top>
-            <Section>
-                <h1>고객추가</h1>
-                <Form onSubmit ={HandleFormSubmit}>
-                    <span>
-                    프로필 이미지 
-                    <input className="Profile" 
-                        type="file" name="file" file={users.file} value={users.fileName} onChange={HandleFileChange}  />
-                    </span><br/>
-                    <span>이름: <input type="text" name="userName" value={users.userName} onChange={HandleValueChange} /></span><br/>
-                    <span>생년월일: <input type="text" name="birthday" value={users.birthday} onChange={HandleValueChange} /></span><br/>
-                    <span>성별: <input type="text" name="gender" value={users.gender} onChange={HandleValueChange} /></span><br/>
-                    <span>직업: <input type="text" name="job" value={users.job} onChange={HandleValueChange} /></span><br/>
-                </Form>
-                <BottomBtn>
-                        <Link to="/faq">
-                            <Button>목록</Button>
-                        </Link>
-                        <Link to="/faq">
-                            <Button type="submit">추가</Button>
-                        </Link>
-                </BottomBtn>
-            </Section>
-        </Container>
+                <>                    
+                    <Button variant="contained" color="primary" onClick={HandleClickOpen}>
+                        고객 추가하기
+                    </Button>
+                    <Dialog open={users.open} onClose={HandleClose}>
+                        <DialogTitle>고객 추가</DialogTitle>
+                        <DialogContent>
+                            <TextField label="이름" type="text" name="userName" value={users.userName} onChange={HandleValueChange} ></TextField>
+                            <TextField label="생년월일" type="text" name="birthday" value={users.birthday} onChange={HandleValueChange} ></TextField>
+                            <TextField label="성별" type="text" name="gender" value={users.gender} onChange={HandleValueChange} ></TextField>
+                            <TextField label="직업" type="text" name="job" value={users.job} onChange={HandleValueChange} ></TextField>
+                        </DialogContent>
+                    </Dialog>
+                </>
     )
 }
 
@@ -177,14 +168,7 @@ const BottomBtn = styled.div`
     margin-top: 40px;
     margin-left: 20px;
 `
-const Button = styled.button`
-    width:100px;
-    height:30px;
-    margin: 2px;
-    background-color: #3d69e1;
-    border: 1px solid #f5f5f5;
-    border-radius: 30px;
-    color: white;
-    cursor:pointer;
-    font-size:12px;
-`
+
+// const DialogTitle = styled(DialogTitle)`
+//     color:white;
+// `

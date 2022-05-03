@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Customer from './Customer';
 import CustomerAdd from './CustomerAdd';
+import Modal from './Modal';
 
 
 function Faq(){
@@ -20,6 +21,7 @@ function Faq(){
     const stateRefresh =() =>{
         setCustom({
             custom: '',
+            search: '',
         });
         callApi()
         .then((data) => setCustom(data));
@@ -32,6 +34,30 @@ function Faq(){
         return body;
     };
 
+    const ModalIn =() =>{
+        alert("내용이다.");
+    }
+
+    // const HandleValueChange = (e) =>{
+    //     let nextState = {};
+    //     nextState[e.target.name] = e.target.value;
+    //     setCustom(nextState);
+    // }
+
+    // const filteredComponents = data => {
+    //     data = data.filter((c) => {
+    //         return c.name.indexOf(search) > -1;
+    //     })
+    //     return data.map((c) => {
+    //         return <Customer  
+    //                     stateRefresh={stateRefresh}
+    //                     header ={header}
+    //                     custom={custom} />
+    //     })
+    // }
+
+    //검색필터링 함수
+
     useEffect(() =>{
         callApi()
         .then((data) => setCustom(data));
@@ -42,6 +68,7 @@ function Faq(){
             <Top>
                 <Link to="/">
                     <img src="/images/logo.svg" alt=""/> 
+                    {/* <input placeholder="search" name="search" value={search} onChange={HandleValueChange} /> */}
                 </Link>
             </Top>
             <Section>
@@ -55,15 +82,14 @@ function Faq(){
                             <AddState>
                                 <CustomerAdd stateRefresh ={stateRefresh}/>
                             </AddState>
+                    {/* {custom ? 
+                            filteredComponents(custom) : "" } */}
                     <BottomBtn>
-                        <Link to="/">
-                            <Button>홈</Button>
-                        </Link>
+                            <Button onClick={ModalIn}>홈</Button>
                         <Link to="/faq/add">
                             <Button>고객추가</Button>
                         </Link>
                     </BottomBtn>
-
                 </Form>
 
             </Section>
