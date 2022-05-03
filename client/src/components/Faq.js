@@ -7,13 +7,13 @@ import CustomerAdd from './CustomerAdd';
 
 function Faq(){
     const [custom, setCustom] = useState([]);
-    const []
     const [header, setHeader] = useState([
         {
             id: '번호',
             name: '이름',
             birthday: '생년월일',
             gender: '성별',
+            update: '설정',
         }
     ])
     
@@ -45,17 +45,23 @@ function Faq(){
                 </Link>
             </Top>
             <Section>
-                <h1>공지사항</h1>
                 <Form method="post">
                     {custom ?
                             <Customer
+                                stateRefresh={stateRefresh}
                                 header ={header}
                                 custom={custom}
                             /> : ""}
-                            <CustomerAdd stateRefresh ={stateRefresh}/>
+                            <AddState>
+                                <CustomerAdd stateRefresh ={stateRefresh}/>
+                            </AddState>
                     <BottomBtn>
-                        <Button>목록</Button>
-                        <Button>수정</Button>
+                        <Link to="/">
+                            <Button>홈</Button>
+                        </Link>
+                        <Link to="/faq/add">
+                            <Button>고객추가</Button>
+                        </Link>
                     </BottomBtn>
 
                 </Form>
@@ -78,36 +84,9 @@ const Top = styled.div`
 
 const Section = styled.div`
     margin-top:80px;
-    h1{
-        font-size:24px;
-    }
+
 
 `
-
-// const Space = styled.div`
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 40px;
-//     font-size: 12px;
-//     font-weight: 500;
-//     ::before{
-//         content: "";
-//         display: inline-block;
-//         width: 150px;
-//         height: 1px;
-//         margin: 0 8px;
-//         background-color: #f5f5f5;
-//     }
-//     ::after{
-//         content: "";
-//         display: inline-block;
-//         width: 150px;
-//         height: 1px;
-//         margin: 0 8px;
-//         background-color: #f5f5f5;
-//     }
-// `
 
 const Form = styled.form`
     display: flex;
@@ -153,10 +132,6 @@ const Button = styled.button`
     cursor:pointer;
     font-size:12px;
 `
-
-const CustomerAdd = styled.div`
-
+const AddState = styled.div`
+    display:none;
 `
-
-
-

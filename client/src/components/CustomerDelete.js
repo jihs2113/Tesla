@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import styled from 'styled-components'
+import {Link} from 'react-router-dom';
 
-function CustomerDelete({stateRefresh}){
+function CustomerDelete({stateRefresh, id}){
 
     const deleteCustomer = id =>{
         const url = '/api/customers/' + id;

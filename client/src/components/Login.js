@@ -20,8 +20,7 @@ function Login(){
             <Section>
                 <h1>로그인</h1>
                 <Form method="post">
-                    <input type="text" inputmode="email" name="identitu" autoComplete="off"
-                    autoCorrect="off" autocapitalize="none" aria-label="email" />
+                    <input type="text" inputmode="email" name="identity" aria-label="email" />
                     <input />
                     <Button>다음</Button>
                     <p>
@@ -105,6 +104,7 @@ const Form = styled.form`
     }
     p{
         margin-top:30px;
+        margin-right:16px;
         font-size:12px;
         color: inherit;
     }

@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Sign from './components/Sign';
 import Faq from './components/Faq';
 import Customer from './components/Customer';
+import CustomerAdd from './components/CustomerAdd';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/sign/*" element={<Sign />}></Route>
               <Route path="/faq/*" element={<Faq />}></Route>
               <Route path="/customer/*" element={<Customer />}></Route>
+              <Route path="faq/add/*" element={<CustomerAdd />}></Route>
             </Routes>
           </BrowserRouter>
       </div>

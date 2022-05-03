@@ -17,7 +17,7 @@ function CustomerAdd({stateRefresh}){
         e.preventDefault();
         addCustomer()
         .then((response) => {
-            console.log(response.data); 
+            console.log(response.data);
             stateRefresh(); 
         })
         setUsers({
@@ -46,7 +46,7 @@ function CustomerAdd({stateRefresh}){
         setUsers(nextState);
     }
 
-    addCustomer = () =>{
+    const addCustomer = () =>{
         const url ='/api/customers';
         const formData = new FormData();
         formData.append('image', users.file);
@@ -65,27 +65,104 @@ function CustomerAdd({stateRefresh}){
     }
 
     return(
-        <>
-            <Form onSubmit ={HandleFormSubmit}>
+        <Container>
+            <Top>
+                <Link to="/">
+                    <img src="/images/logo.svg" alt=""/> 
+                </Link>
+            </Top>
+            <Section>
                 <h1>고객추가</h1>
-                프로필 이미지: <input type="file" name="file" file={users.file} 
-                value={users.fileName} onChange={HandleFileChange}  /><br/>
-                이름: <input type="text" name="userName" value={users.userName} onChange={HandleValueChange} /><br/>
-                생년월일: <input type="text" name="birthday" value={users.birthday} onChange={HandleValueChange} /><br/>
-                성별: <input type="text" name="gender" value={users.gender} onChange={HandleValueChange} /><br/>
-                직업: <input type="text" name="job" value={users.job} onChange={HandleValueChange} /><br/>
-                <Button type="submit">추가하기</Button>
-            </Form>
-        </>
+                <Form onSubmit ={HandleFormSubmit}>
+                    <span>
+                    프로필 이미지 
+                    <input className="Profile" 
+                        type="file" name="file" file={users.file} value={users.fileName} onChange={HandleFileChange}  />
+                    </span><br/>
+                    <span>이름: <input type="text" name="userName" value={users.userName} onChange={HandleValueChange} /></span><br/>
+                    <span>생년월일: <input type="text" name="birthday" value={users.birthday} onChange={HandleValueChange} /></span><br/>
+                    <span>성별: <input type="text" name="gender" value={users.gender} onChange={HandleValueChange} /></span><br/>
+                    <span>직업: <input type="text" name="job" value={users.job} onChange={HandleValueChange} /></span><br/>
+                </Form>
+                <BottomBtn>
+                        <Link to="/faq">
+                            <Button>목록</Button>
+                        </Link>
+                        <Link to="/faq">
+                            <Button type="submit">추가</Button>
+                        </Link>
+                </BottomBtn>
+            </Section>
+        </Container>
     )
 }
 
 export default CustomerAdd
 
-const Form = styled.div`
+const Container = styled.div`
+    font-size:12px;
+`
+
+const Top = styled.div`
+    display:flex;
+    margin: 20px;
+`
+
+const Section = styled.div`
+    margin-top:160px;
+    
 
 `
 
-const Buttom = styled.button`
+const Form = styled.div`
+    display: flex;
+    align-items:center;
+    flex-direction:column;
+    margin-top:20px;
+    .Profile{
+       display:flex;
+       background-color:white;
+       border:none;
+       padding-left:80px;
+    }
+    input{
+        width:340px;
+        height: 30px;
+        margin-top:20px; 
+        margin-left:10px;
+        background-color: #f5f5f5;
+        border: 1px solid #f5f5f5;
+        border-radius: 30px;
+        padding-left:12px;
+        
+    }
+    p{
+        margin-top:30px;
+        font-size:12px;
+        color: inherit;
+    }
+    a{
+        text-decoration: underline;
+        cursor:pointer;
+        font-size:12px;
+    }
+    span{
+        padding: 0 0.5rem;
+    }
 
+`
+const BottomBtn = styled.div`
+    margin-top: 40px;
+    margin-left: 20px;
+`
+const Button = styled.button`
+    width:100px;
+    height:30px;
+    margin: 2px;
+    background-color: #3d69e1;
+    border: 1px solid #f5f5f5;
+    border-radius: 30px;
+    color: white;
+    cursor:pointer;
+    font-size:12px;
 `
