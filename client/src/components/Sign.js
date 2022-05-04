@@ -6,7 +6,9 @@ import Kakao from './Kakao';
 
 function Login(){
 
-    const NaverIn = () =>{
+    const HandleFormSubmit = (e) =>{
+        e.preventDefault();
+        
         
     }
 
@@ -19,7 +21,7 @@ function Login(){
             </Top>
             <Section>
                 <h1>회원가입</h1>
-                <Form method="post">
+                <Form method="post" onSubmit={HandleFormSubmit}>
                     <div className="formtext">
                         <p className="nation">국적 선택</p>
                         <select id="formSelectRegion" autocomplete="off">
@@ -58,11 +60,11 @@ function Login(){
                         <input className="infocheck" type="checkbox" name="privacy_consent" value="1" />
                         <p>Tesla 계정을 생성함으로써 Tesla <a>개인정보 처리방침</a> 및 <a>이용약관</a>을 이해했으며 동의합니다.</p>
                     </div>
-                    <Button>계정 생성</Button>
+                    <Button type="submit">계정 생성</Button>
                 </Form>
                 <Space>또는</Space>
                 <LoginLink>
-                    <Link to="/sign">
+                    <Link to="/login">
                         <SignIn>로그인</SignIn>
                     </Link>
                 </LoginLink>
