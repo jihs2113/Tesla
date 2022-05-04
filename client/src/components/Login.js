@@ -20,14 +20,20 @@ function Login(){
             <Section>
                 <h1>로그인</h1>
                 <Form method="post">
-                    <input type="text" inputmode="email" name="identity" aria-label="email" />
-                    <input />
+                    <div className="formtext">
+                        <p>이메일 주소</p>
+                        <input type="text" inputmode="email" name="identity" aria-label="email" />
+                    </div>
+                    <div className="formtext">
+                        <p>비밀번호</p>
+                        <input />
+                    </div>
                     <Button>다음</Button>
-                    <p>
+                    <div className="forget">
                         <a>이메일 주소를 잊으셨나요?</a>
                         <span>ㅣ</span>
                         <a>비밀번호를 잊으셨나요?</a>
-                    </p>
+                    </div>
                 </Form>
                 <Space>또는</Space>
                 <LoginLink>
@@ -94,7 +100,7 @@ const Form = styled.form`
     input{
         width:340px;
         height: 40px;
-        margin-top:20px; 
+        margin-top:10px; 
         background-color: #f5f5f5;
         border: 1px solid #f5f5f5;
         border-radius: 30px;
@@ -102,7 +108,15 @@ const Form = styled.form`
         padding-right:30px;
         
     }
-    p{
+    .formtext{
+        text-align:left;
+        margin-top:10px;
+        p{
+            margin-top: 10px;
+            margin-left:20px;
+        }
+    }
+    .forget{
         margin-top:30px;
         margin-right:16px;
         font-size:12px;
